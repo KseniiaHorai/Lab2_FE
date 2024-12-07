@@ -1,0 +1,171 @@
+// Змінні
+$primary-color: #fba708
+$secondary-color: #fee5b5
+$hover-color: #afc4dd
+$background-color: #fffcf7
+$font-family-main: Arial, sans-serif
+$font-family-secondary: "Arvo", serif
+$border-radius: 5px
+
+// Міксини для загальних стилів
+@mixin border-radius($radius)
+  border-radius: $radius
+
+@mixin button-styles($bg-color, $padding: 5px 10px, $font-size: 1em)
+  padding: $padding
+  background-color: $bg-color
+  border: none
+  border-radius: $border-radius
+  cursor: pointer
+  font-size: $font-size
+
+  &:hover
+    background-color: $hover-color
+
+@mixin center-block($width: auto, $margin: 0 auto)
+  width: $width
+  display: block
+  margin-left: $margin
+  margin-right: $margin
+
+// Основні стилі
+* 
+  box-sizing: border-box
+  font-family: $font-family-secondary
+  margin: 0
+  padding: 0
+
+body 
+  font-family: $font-family-main
+  background-color: $background-color
+  color: #333
+
+table
+  width: 100%
+  border-collapse: collapse
+
+th, td
+  border: 1px solid $primary-color
+  padding: 10px
+
+// Стилі для .search
+.search 
+  input, button
+    @include border-radius($border-radius)
+    padding: 5px
+    font-size: 1em
+
+  input
+    border: 2px solid $primary-color
+
+  button
+    @include button-styles($secondary-color)
+
+.main-logo
+  @include center-block(150px)
+  background-color: $hover-color
+
+.glass
+  width: 16px
+  display: block
+
+.norway-image
+  @include center-block(700px)
+  margin-bottom: 20px
+
+.sections
+  margin-left: 100px
+  font-weight: 700
+
+  .sections-item
+    display: inline
+    margin: 30px
+
+.side-bar
+  margin-left: 30px
+  font-weight: 700
+
+  .side-bar-item
+    margin: 10px
+    padding: 5px
+    list-style-type: none
+
+// Медіа запити
+@media (min-width: 768px)
+  .search 
+    input
+      width: 150px
+
+    button
+      padding: 10px 15px
+
+  .sections
+    margin-left: 50px
+    font-size: 1.2em
+
+  .side-bar
+    font-size: 1.1em
+
+  .norway-image
+    width: 600px
+
+@media (max-width: 767px)
+  body
+    padding: 10px
+
+  .search
+    text-align: center
+
+    input
+      width: 100%
+      margin-bottom: 10px
+
+    button
+      width: 100%
+      padding: 8px
+
+  .main-logo
+    width: 120px
+
+  .sections
+    margin-left: 0
+    text-align: center
+
+  .sections-item
+    display: block
+    margin-bottom: 15px
+
+  .side-bar
+    margin-left: 0
+    text-align: center
+    font-size: 1em
+
+  .side-bar-item
+    display: inline-block
+    margin: 5px
+
+  .norway-image
+    width: 100%
+
+  table
+    display: block
+
+  th, td
+    display: block
+    width: 100%
+    border: none
+
+@media (max-width: 480px)
+  .sections-item
+    font-size: 1em
+
+  .side-bar-item
+    font-size: 0.9em
+
+  .norway-image
+    width: 100%
+    height: auto
+
+  .search
+    input, button
+      font-size: 0.9em
